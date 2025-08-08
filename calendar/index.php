@@ -23,19 +23,23 @@ include "includes/header.php" ?>
     
       <div class="container">
         <div class="row pt-4">
-      
-        
-          <div class="col-md-9">
+           <div class="col-md-9">
             <div id="months" class="mb-2 bg-sand p-3 pb-2"></div>
-            
+          </div>
+          <div class="col-md-3">
+
+                      <label> Search & Filter Events </label>
+                      <div id="search">
+                      </div>
+          </div>
+        </div>
+        <div class="row pt-4">
+    
+          <div class="col-md-9">            
             
             <div id="events"></div>
           </div>
           <div class="col-md-3">
-
-            <label> Search & Filter Events </label>
-            <div id="search">
-            </div>
            
             <div id="dates" class="mt-4">
             </div>
