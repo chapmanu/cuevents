@@ -1,7 +1,7 @@
 <!doctype html>
 <?php include "../includes/header.php" ?>
   
-      <div class="container-fluid bg-dark">
+      <div class="container-fluid bg-dark test">
         <div class="container pt-3 pb-3">
           <div class="row">
             <div class="col-md-6">
