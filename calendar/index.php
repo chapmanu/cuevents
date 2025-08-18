@@ -2,7 +2,6 @@
 ini_set("display_errors", "1");
 ini_set("display_startup_errors", "1");
 error_reporting(E_ALL);
-
 include "includes/header.php" ?>
 
 <!doctype html>
@@ -27,10 +26,8 @@ include "includes/header.php" ?>
             <div id="months" class="mb-2 bg-sand p-3 pb-2"></div>
           </div>
           <div class="col-md-3">
-
-                      <label> Search & Filter Events </label>
-                      <div id="search">
-                      </div>
+            <div id="search">
+            </div>
           </div>
         </div>
         <div class="row pt-4">
@@ -43,10 +40,6 @@ include "includes/header.php" ?>
            
             <div id="dates" class="mt-4">
             </div>
-
-           <!-- <div id="calendars" class="mt-4">
-              
-            </div> -->
 
             <?php include "includes/calendar-links.php" ?>
           </div>

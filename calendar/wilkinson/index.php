@@ -5,7 +5,7 @@
         <div class="container pt-3 pb-3">
           <div class="row">
             <div class="col-md-9">
-              <h1 class="text-white"><a href="/calendar/communication/index.php">Wilkinson College of Arts, Humanities, and Social Sciences Events </a></h1>
+              <h1 class="text-white"><a href="<?php echo $baseUrl.'/communication/index.php' ?>">Wilkinson College of Arts, Humanities, and Social Sciences Events </a></h1>
             </div>
             <div class="col-md-3">
               <a class="btn btn-danger float-end border-0 rounded-0" href="https://25live.collegenet.com/chapman/" target="_blank"> Submit Event </a>
@@ -16,27 +16,29 @@
 
     
       <div class="container">
+         <div class="row pt-4">
+           <div class="col-md-9">
+            <div id="months" class="mb-2 bg-sand p-3 pb-2"></div>
+          </div>
+          <div class="col-md-3">
+            <div id="search">
+            </div>
+          </div>
+        </div>
+
         <div class="row pt-4">
       
         
           <div class="col-md-9">
-            <div id="months" class="mb-2 bg-sand p-3 pb-2"></div>
             
             
             <div id="events"></div>
           </div>
           <div class="col-md-3">
 
-            <label> Search & Filter Arts, Humanities, and Social Sciences Events </label>
-            <div id="search">
-            </div>
            
             <div id="dates" class="mt-4">
             </div>
-
-           <!-- <div id="calendars" class="mt-4">
-              
-            </div>-->
 
             <?php include "../includes/calendar-links.php" ?>
           </div>
@@ -59,7 +61,7 @@
         $Trumba.addSpud({
         webName: "wilkinson-event-calendar",
         spudType : "datefinder" ,
-        teaserBase : "/calendar/wilkinson/index.php",
+        teaserBase : "<?php echo $baseUrl.'/wilkinson/index.php' ?>",
         spudId: "dates" });
 
         $Trumba.addSpud({

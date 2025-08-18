@@ -4,6 +4,9 @@ $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 // Set default title
 $title = "Events Calendar | Chapman University";
 
+$baseUrl = getenv('APP_BASE_URL');
+$basePath = getenv('APP_BASE_PATH');
+
 // Define custom titles for specific paths
 if (strpos($uri, 'copa') !== false) {
     $title = "College of Performing Arts Events Calendar | Chapman University";
@@ -12,8 +15,25 @@ if (strpos($uri, 'copa') !== false) {
 } elseif (strpos($uri, 'attallah') !== false) {
     $title =  "Attallah College of Educational Studies Events Calendar | Chapman University";
 } elseif (strpos($uri, 'crean') !== false) {
-    $title = "Blog";
-} else {
+    $title = "Crean College of Health and Behavioral Sciences Events | Chapman University";
+} elseif (strpos($uri, 'dodge') !== false) {
+    $title = "Dodge College of Film and Media Arts Events | Chapman University";
+} elseif (strpos($uri, 'fowler') !== false) {
+    $title = "Fowler School of Engineering Events | Chapman University";
+} elseif (strpos($uri, 'law') !== false) {
+    $title = "Dale E. Fowler School of Law Events | Chapman University";
+} elseif (strpos($uri, 'schmid') !== false) {
+    $title = "Schmid College of Science and Technology Events | Chapman University";
+} elseif (strpos($uri, 'communication') !== false) {
+    $title = "School of Communication Events | Chapman University";
+} elseif (strpos($uri, 'pharmacy') !== false) {
+    $title = "School of Pharmacy Events | Chapman University";
+} elseif (strpos($uri, 'wilkinson') !== false) {
+    $title = "Wilkinson College of Arts, Humanities, and Social Sciences Events | Chapman University";
+} elseif (strpos($uri, 'student') !== false) {
+    $title = "Student Events | Chapman University";
+}  
+else {
     $title = "Events Calendar | Chapman University";
 }
 
@@ -26,7 +46,7 @@ if (strpos($uri, 'copa') !== false) {
     <title> <?php echo $title ?></title>
     <link rel="stylesheet" href="https://use.typekit.net/opk5ckj.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="/calendar/footer.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo $basePath.'/footer.css' ?>" rel="stylesheet" type="text/css" />
     <style>
       body, html{
         font-family: "futura-pt", sans-serif;
@@ -71,43 +91,52 @@ if (strpos($uri, 'copa') !== false) {
       }
       .calendars a{
         color: #a50034;
+        display: block;
+        padding: 10px 8px;
+        margin-bottom: 5px;
+      }
+
+      .calendars a:hover{
+        background: #DDCBA4;
+      }
+      .calendars a.active{
+        background: #DDCBA4;
       }
     </style>
   </head>
   <body>
 
   <header data-bs-theme="light">
-        <div class="collapse text-bg-dark" id="navbarHeader">
-          <div class="container">
-            <div class="row">
-              <div class="col-sm-8 col-md-7 py-4">
-                <h4><strong>Discover What’s Happening at Chapman</strong></h4>
-                <p>Looking for something to do on campus or around Orange? Our interactive events calendar makes it easy to explore what’s happening at Chapman University. Want to feature your event? Submit it through 25Live and help get the word out.</p>
-              </div>
-              <div class="col-sm-4 offset-md-1 py-4">
-                <h4><strong>Explore Chapman University</strong></h4>
-                <ul class="list-unstyled">
-                  <li><a href="https://chapman.edu" class="text-white">Chapman Home</a></li>
-                  <li><a href="https://www.chapman.edu/academics/degrees-and-programs.aspx" class="text-white">Degrees & Programs</a></li>
-                  <li><a href="https://www.chapman.edu/academics/schools-colleges.aspx" class="text-white">Schools & Colleges</a></li>
-                  <li><a href="https://news.chapman.edu/" class="text-white">Chapman News</a></li>
-                </ul>
-              </div>
-            </div>
+    <div class="collapse text-bg-dark" id="navbarHeader">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 col-md-7 py-4">
+            <h4><strong>Discover What’s Happening at Chapman</strong></h4>
+            <p>Looking for something to do on campus or around Orange? Our interactive events calendar makes it easy to explore what’s happening at Chapman University. Want to feature your event? Submit it through 25Live and help get the word out.</p>
+          </div>
+          <div class="col-sm-4 offset-md-1 py-4">
+            <h4><strong>Explore Chapman University</strong></h4>
+            <ul class="list-unstyled">
+              <li><a href="https://chapman.edu" class="text-white">Chapman Home</a></li>
+              <li><a href="https://www.chapman.edu/academics/degrees-and-programs.aspx" class="text-white">Degrees & Programs</a></li>
+              <li><a href="https://www.chapman.edu/academics/schools-colleges.aspx" class="text-white">Schools & Colleges</a></li>
+              <li><a href="https://news.chapman.edu/" class="text-white">Chapman News</a></li>
+            </ul>
           </div>
         </div>
-        <div class="navbar navbar-light bg-light">
-          <div class="container">
-            <a href="/calendar/index.php" class="navbar-brand d-flex align-items-center">
-              <img src="/calendar/Chapman_University_logo.svg" alt="chapman logo" class="logo" /> <span class="site-title">Events</span>
-            </a>
-            <div>
+      </div>
+    </div>
+    <div class="navbar navbar-light bg-light">
+      <div class="container">
+        <a href="<?php echo $baseUrl.'/index.php'?>" class="navbar-brand d-flex align-items-center">
+          <img src="<?php echo $basePath.'/Chapman_University_logo.svg' ?>" alt="chapman logo" class="logo" /> <span class="site-title">Events</span>
+        </a>
+        <div>
 
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-            </div>
-          </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
         </div>
-      </header>
-  
+      </div>
+    </div>
+  </header>

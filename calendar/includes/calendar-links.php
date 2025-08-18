@@ -1,17 +1,37 @@
 <br/>
+<?php
+// this is to add a class active to the link when we are on a school/college link
+$current_url = $_SERVER['REQUEST_URI'];
+function isActive($keyword) {
+    global $current_url;
+    if (strpos($current_url, $keyword) !== false) {
+        return 'active';
+    }
+    return '';
+}
+
+$keywords = ['argyros', 'attallah', 'crean', 'copa', 'dodge', 'fowler', 'law', 'schmid', 'communication', 'pharmacy', 'wilkinson', 'student'];
+$anyMatched = false;
+foreach ($keywords as $k) {
+    if (isActive($k)) {
+        $anyMatched = true;
+        break;
+    }
+}
+?>
 <h3> Calendars </h3>
 <div class="calendars">
-<p><a href="/calendar/index.php"> All Events</a></p>
-<p><a href="/calendar/argyros/index.php"> Argyros College of Business & Economics</a></p>
-<p><a href="/calendar/attallah/index.php"> Attallah College of Educational Studies</a></p>
-<p><a href="/calendar/crean/index.php"> Crean College of Health and Behavioral Sciences</a></p>
-<p><a href="/calendar/copa/index.php"> College of Performing Arts</a></p>
-<p><a href="/calendar/dodge/index.php"> Dodge College of Film and Media Arts</a></p>
-<p><a href="/calendar/fowler/index.php">Fowler School of Engineering</a></p>
-<p><a href="/calendar/law/index.php">Fowler School of Law</a></p>
-<p><a href="/calendar/schmid/index.php">Schmid College of Science and Technology</a></p>
-<p><a href="/calendar/communication/index.php">School of Communication</a></p>
-<p><a href="/calendar/pharmacy/index.php">School of Pharmacy</a></p>
-<p><a href="/calendar/wilkinson/index.php">Wilkinson College of Arts, Humanities, and Social Sciences</a></p>
-<p><a href="/calendar/students/index.php">Student Events</a></p>
+<a href="<?php echo $baseUrl.'/index.php' ?>" class="<?php echo !$anyMatched ? 'active' : ''; ?>"> All Events</a>
+<a href="<?php echo $baseUrl.'/argyros/index.php' ?>" class="<?php echo isActive('argyros'); ?>"> Argyros College of Business & Economics</a>
+<a href="<?php echo $baseUrl.'/attallah/index.php' ?>" class="<?php echo isActive('attallah'); ?>"> Attallah College of Educational Studies</a>
+<a href="<?php echo $baseUrl.'/crean/index.php' ?>" class="<?php echo isActive('crean'); ?>"> Crean College of Health and Behavioral Sciences</a>
+<a href="<?php echo $baseUrl.'/copa/index.php' ?>" class="<?php echo isActive('copa'); ?>"> College of Performing Arts</a>
+<a href="<?php echo $baseUrl.'/dodge/index.php' ?>" class="<?php echo isActive('dodge'); ?>"> Dodge College of Film and Media Arts</a>
+<a href="<?php echo $baseUrl.'/fowler/index.php' ?>" class="<?php echo isActive('fowler'); ?>">Fowler School of Engineering</a>
+<a href="<?php echo $baseUrl.'/law/index.php' ?>" class="<?php echo isActive('law'); ?>">Fowler School of Law</a>
+<a href="<?php echo $baseUrl.'/schmid/index.php' ?>" class="<?php echo isActive('schmid'); ?>">Schmid College of Science and Technology</a>
+<a href="<?php echo $baseUrl.'/communication/index.php' ?>" class="<?php echo isActive('communication'); ?>">School of Communication</a>
+<a href="<?php echo $baseUrl.'/pharmacy/index.php' ?>" class="<?php echo isActive('pharmacy'); ?>">School of Pharmacy</a>
+<a href="<?php echo $baseUrl.'/wilkinson/index.php' ?>" class="<?php echo isActive('wilkinson'); ?>">Wilkinson College of Arts, Humanities, and Social Sciences</a>
+<a href="<?php echo $baseUrl.'/students/index.php' ?>" class="<?php echo isActive('student'); ?>">Student Events</a>
 </div>
