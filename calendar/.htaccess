@@ -1,0 +1,3 @@
+# Define environment variables
+SetEnv APP_BASE_URL "https://cuevents-f4fgcqg5begkedcy.westus2-01.azurewebsites.net/calendar"
+SetEnv APP_BASE_PATH "/calendar"
