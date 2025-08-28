@@ -13,7 +13,7 @@ include "includes/header.php" ?>
               <h1 class="text-white">All Chapman Events </h1>
             </div>
             <div class="col-md-6">
-              <a class="btn btn-danger float-end border-0 rounded-0" href="https://25live.collegenet.com/chapman/" target="_blank"> Submit Event </a>
+              <a class="btn btn-danger float-end border-0 rounded-0" href="<?php echo $basePath.'/submit-events.php' ?>"> Submit an Event </a>
             </div>
         </div>
         </div>
