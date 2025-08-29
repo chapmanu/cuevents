@@ -48,7 +48,8 @@ else {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="<?php echo $basePath.'/footer.css' ?>" rel="stylesheet" type="text/css" />
     <meta name="description"  content="Chapman University's main interactive events calendar makes it easy to explore what’s happening at the university and around Old Town Orange, California." />
-    <link rel="shortcut icon" href="<?php echo $basePath.'/favicon.ico' ?>" /><link rel="apple-touch-icon" href="<?php echo $basePath.'/apple-touch-icon.png' ?>" /><style id="wplmi-inline-css" type="text/css">
+    <link rel="shortcut icon" href="<?php echo $basePath.'/favicon.ico' ?>" />
+    <link rel="apple-touch-icon" href="<?php echo $basePath.'/apple-touch-icon.png' ?>" />
 
     <style>
       body, html{
