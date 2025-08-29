@@ -9,7 +9,7 @@
               <h1 class="text-white"><a href="<?php echo $baseUrl.'attallah/index.php' ?>">Attallah College of Educational Studies </a></h1>
             </div>
             <div class="col-md-3">
-              <a class="btn btn-danger float-end border-0 rounded-0" href="https://25live.collegenet.com/chapman/" target="_blank"> Submit Event </a>
+              <a class="btn btn-danger float-end border-0 rounded-0" href="<?php echo $basePath.'/submit-events.php' ?>"> Submit an Event </a>
             </div>
         </div>
         </div>
