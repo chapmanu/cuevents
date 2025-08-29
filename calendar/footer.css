@@ -33,7 +33,7 @@ footer{
     padding: unset;
     color: unset;
     line-height: unset;
-    font-size: 14px;
+    font-size: 16px;
     color: white;
     line-height: 24px;
     background-color: unset;
@@ -83,7 +83,7 @@ footer{
     display: -ms-flexbox;
     display: flex;
     width: 100%;
-    width: 80%;
+    width: 85%;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
