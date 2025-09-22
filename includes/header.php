@@ -22,6 +22,8 @@ if (strpos($uri, 'copa') !== false) {
     $title = "Fowler School of Engineering Events | Chapman University";
 } elseif (strpos($uri, 'law') !== false) {
     $title = "Dale E. Fowler School of Law Events | Chapman University";
+} elseif (strpos($uri, 'musco') !== false) {
+    $title = "Musco Center for the Arts Events Calendar | Chapman University";
 } elseif (strpos($uri, 'schmid') !== false) {
     $title = "Schmid College of Science and Technology Events | Chapman University";
 } elseif (strpos($uri, 'communication') !== false) {
@@ -32,8 +34,7 @@ if (strpos($uri, 'copa') !== false) {
     $title = "Wilkinson College of Arts, Humanities, and Social Sciences Events | Chapman University";
 } elseif (strpos($uri, 'student') !== false) {
     $title = "Student Events | Chapman University";
-}  
-else {
+} else {
     $title = "Events Calendar | Chapman University";
 }
 
