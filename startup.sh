@@ -1,30 +1,33 @@
 #!/bin/bash
-set -e  # exit immediately if a command fails
+set -e
 
-echo "[startup.sh] Starting custom Nginx setup..."
-
-# Paths
+LOG_FILE=/home/LogFiles/startup.log
 CUSTOM_CONF=/home/site/wwwroot/nginx.conf
-TARGET_AVAILABLE=/etc/nginx/sites-available/default
-TARGET_ENABLED=/etc/nginx/sites-enabled/default
+
+echo "[startup.sh] Starting custom Nginx setup..." >> $LOG_FILE
 
 # Verify custom config exists
 if [ ! -f "$CUSTOM_CONF" ]; then
-  echo "[startup.sh] ERROR: $CUSTOM_CONF not found"
+  echo "[startup.sh] ERROR: $CUSTOM_CONF not found" >> $LOG_FILE
   exit 1
 fi
 
-# Backup existing config (just in case)
-cp $TARGET_AVAILABLE ${TARGET_AVAILABLE}.bak || true
-cp $TARGET_ENABLED ${TARGET_ENABLED}.bak || true
+# Backup and replace possible default config locations
+for TARGET in \
+    /etc/nginx/sites-available/default \
+    /etc/nginx/sites-enabled/default \
+    /etc/nginx/conf.d/default.conf
+do
+  if [ -f "$TARGET" ]; then
+    cp $TARGET ${TARGET}.bak || true
+    cp $CUSTOM_CONF $TARGET
+    echo "[startup.sh] Replaced $TARGET" >> $LOG_FILE
+  else
+    echo "[startup.sh] Skipped missing $TARGET" >> $LOG_FILE
+  fi
+done
 
-# Copy our custom config into place
-cp $CUSTOM_CONF $TARGET_AVAILABLE
-cp $CUSTOM_CONF $TARGET_ENABLED
+# Reload nginx
+service nginx reload || (echo "[startup.sh] ERROR: Failed to reload nginx" >> $LOG_FILE; exit 1)
 
-echo "[startup.sh] Custom Nginx config copied."
-
-# Reload Nginx to apply changes
-service nginx reload
-
-echo "[startup.sh] Nginx reloaded successfully."
+echo "[startup.sh] Nginx reloaded successfully." >> $LOG_FILE
