@@ -40,6 +40,14 @@ else {
 ?>
 <html lang="en">
   <head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MSC27D');</script>
+    <!-- End Google Tag Manager -->
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -109,38 +117,42 @@ else {
     </style>
   </head>
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MSC27D"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
-  <header data-bs-theme="light">
-    <div class="collapse text-bg-dark" id="navbarHeader">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-8 col-md-7 py-4">
-            <h4><strong>Discover What’s Happening at Chapman</strong></h4>
-            <p>Looking for something to do on campus or around Orange? Our interactive events calendar makes it easy to explore what’s happening at Chapman University. Want to feature your event? Submit it through 25Live and help get the word out.</p>
-          </div>
-          <div class="col-sm-4 offset-md-1 py-4">
-            <h4><strong>Explore Chapman University</strong></h4>
-            <ul class="list-unstyled">
-              <li><a href="https://chapman.edu" class="text-white">Chapman Home</a></li>
-              <li><a href="https://www.chapman.edu/academics/degrees-and-programs.aspx" class="text-white">Degrees & Programs</a></li>
-              <li><a href="https://www.chapman.edu/academics/schools-colleges.aspx" class="text-white">Schools & Colleges</a></li>
-              <li><a href="https://news.chapman.edu/" class="text-white">Chapman News</a></li>
-            </ul>
+    <header data-bs-theme="light">
+      <div class="collapse text-bg-dark" id="navbarHeader">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-md-7 py-4">
+              <h4><strong>Discover What’s Happening at Chapman</strong></h4>
+              <p>Looking for something to do on campus or around Orange? Our interactive events calendar makes it easy to explore what’s happening at Chapman University. Want to feature your event? Submit it through 25Live and help get the word out.</p>
+            </div>
+            <div class="col-sm-4 offset-md-1 py-4">
+              <h4><strong>Explore Chapman University</strong></h4>
+              <ul class="list-unstyled">
+                <li><a href="https://chapman.edu" class="text-white">Chapman Home</a></li>
+                <li><a href="https://www.chapman.edu/academics/degrees-and-programs.aspx" class="text-white">Degrees & Programs</a></li>
+                <li><a href="https://www.chapman.edu/academics/schools-colleges.aspx" class="text-white">Schools & Colleges</a></li>
+                <li><a href="https://news.chapman.edu/" class="text-white">Chapman News</a></li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="navbar navbar-light bg-light">
-      <div class="container">
-        <a href="<?php echo $baseUrl.'/index.php'?>" class="navbar-brand d-flex align-items-center">
-          <img src="<?php echo $basePath.'/Chapman_University_logo.svg' ?>" alt="chapman logo" class="logo" /> <span class="site-title">Events</span>
-        </a>
-        <div>
+      <div class="navbar navbar-light bg-light">
+        <div class="container">
+          <a href="<?php echo $baseUrl.'/index.php'?>" class="navbar-brand d-flex align-items-center">
+            <img src="<?php echo $basePath.'/Chapman_University_logo.svg' ?>" alt="chapman logo" class="logo" /> <span class="site-title">Events</span>
+          </a>
+          <div>
 
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
         </div>
       </div>
-    </div>
-  </header>
+    </header>
