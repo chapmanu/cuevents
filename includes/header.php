@@ -115,6 +115,7 @@ if (strpos($uri, 'copa') !== false) {
       .calendars a.active{
         background: #DDCBA4;
       }
+      
     </style>
   </head>
   <body>
