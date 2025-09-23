@@ -5,7 +5,7 @@
         <div class="container pt-3 pb-3">
           <div class="row">
             <div class="col-md-9">
-              <h1 class="text-white"><a href="<?php echo $baseUrl.'/copa/index.php' ?>">Musco Center for the Arts Events</a></h1>
+              <h1 class="text-white"><a href="<?php echo $baseUrl.'/musco/index.php' ?>">Musco Center for the Arts Events</a></h1>
             </div>
             <div class="col-md-3">
               <a class="btn btn-danger float-end border-0 rounded-0" href="<?php echo $basePath.'/submit-events.php' ?>"> Submit an Event </a>

@@ -10,7 +10,7 @@ function isActive($keyword) {
     return '';
 }
 
-$keywords = ['argyros', 'attallah', 'crean', 'copa', 'dodge', 'fowler', 'law', 'schmid', 'communication', 'pharmacy', 'wilkinson', 'student'];
+$keywords = ['argyros', 'attallah', 'crean', 'copa', 'dodge', 'fowler', 'law', 'musco', 'schmid', 'communication', 'pharmacy', 'wilkinson', 'student'];
 $anyMatched = false;
 foreach ($keywords as $k) {
     if (isActive($k)) {

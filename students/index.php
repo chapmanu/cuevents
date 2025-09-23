@@ -5,7 +5,7 @@
         <div class="container pt-3 pb-3">
           <div class="row">
             <div class="col-md-6">
-              <h1 class="text-white"><a href="<?php echo $baseUrl.'/student/index.php' ?>">Student Events </a></h1>
+              <h1 class="text-white"><a href="<?php echo $baseUrl.'/students/index.php' ?>">Student Events </a></h1>
             </div>
             <div class="col-md-6">
               <a class="btn btn-danger float-end border-0 rounded-0" href="<?php echo $basePath.'/submit-events.php' ?>"> Submit an Event </a>
