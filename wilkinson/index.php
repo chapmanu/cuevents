@@ -5,7 +5,7 @@
         <div class="container pt-3 pb-3">
           <div class="row">
             <div class="col-md-9">
-              <h1 class="text-white"><a href="<?php echo $baseUrl.'/communication/index.php' ?>">Wilkinson College of Arts, Humanities, and Social Sciences Events </a></h1>
+              <h1 class="text-white"><a href="<?php echo $baseUrl.'/wilkinson/index.php' ?>">Wilkinson College of Arts, Humanities, and Social Sciences Events </a></h1>
             </div>
             <div class="col-md-3">
               <a class="btn btn-danger float-end border-0 rounded-0" href="<?php echo $basePath.'/submit-events.php' ?>"> Submit an Event </a>
