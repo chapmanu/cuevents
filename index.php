@@ -63,7 +63,7 @@ include "includes/header.php" ?>
         $Trumba.addSpud({
         webName: "chapman-public-events-calendar",
         spudType : "datefinder" ,
-        teaserBase : "/calendar/index.php",
+        teaserBase : "/index.php",
         spudId: "dates" });
 
         $Trumba.addSpud({
