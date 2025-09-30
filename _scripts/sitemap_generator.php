@@ -13,7 +13,7 @@
 $baseUrl = getenv('APP_BASE_URL') ?: 'https://events.chapman.edu';
 
 // The source of event data.
-define('RSS_FEED_URL', 'https://25livepub.collegenet.com/calendars/test-public-events-calendar.rss');
+define('RSS_FEED_URL', 'https://25livepub.collegenet.com/calendars/chapman-public-events-calendar.rss');
 
 // The base URL for your event pages. The event ID will be appended to this.
 // Note: The trumbaEmbed parameter is already URL-encoded as requested.
