@@ -50,30 +50,30 @@ include "includes/header.php" ?>
     
     <script type="text/javascript">
        $Trumba.addSpud({
-          webName: "test-public-events-calendar",
+          webName: "chapman-public-events-calendar",
           spudType : "searchlabeled",
            spudId: "search"
         });
 
         $Trumba.addSpud({
-        webName: "test-public-events-calendar",
+        webName: "chapman-public-events-calendar",
         spudType : "main",
         spudId: "events" });
 
         $Trumba.addSpud({
-        webName: "test-public-events-calendar",
+        webName: "chapman-public-events-calendar",
         spudType : "datefinder" ,
         teaserBase : "/calendar/index.php",
         spudId: "dates" });
 
         $Trumba.addSpud({
-        webName: "test-public-events-calendar",
+        webName: "chapman-public-events-calendar",
         spudType : "monthlist", 
         spudId: "months"
         });
 
         $Trumba.addSpud({
-        webName: "test-public-events-calendar",
+        webName: "chapman-public-events-calendar",
         spudType : "filter",
         spudId: "calendars" });
        
