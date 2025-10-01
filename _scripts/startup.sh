@@ -2,7 +2,7 @@
 set -e
 
 LOG_FILE=/home/LogFiles/startup.log
-CUSTOM_CONF=/home/site/wwwroot/nginx.conf
+CUSTOM_CONF=/home/site/wwwroot/_scripts/nginx.conf
 
 echo "[startup.sh] Starting custom Nginx setup..." >> $LOG_FILE
 
