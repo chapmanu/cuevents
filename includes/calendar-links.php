@@ -28,8 +28,8 @@ foreach ($keywords as $k) {
 <a href="<?php echo $baseUrl.'/copa/index.php' ?>" class="<?php echo isActive('copa'); ?>"> College of Performing Arts</a>
 <a href="<?php echo $baseUrl.'/dodge/index.php' ?>" class="<?php echo isActive('dodge'); ?>"> Dodge College of Film and Media Arts</a>
 <a href="<?php echo $baseUrl.'/fowler/index.php' ?>" class="<?php echo isActive('fowler'); ?>">Fowler School of Engineering</a>
-<a href="<?php echo $baseUrl.'/musco/index.php' ?>" class="<?php echo isActive('musco'); ?>">Musco Center for the Arts</a>
 <a href="<?php echo $baseUrl.'/law/index.php' ?>" class="<?php echo isActive('law'); ?>">Fowler School of Law</a>
+<a href="<?php echo $baseUrl.'/musco/index.php' ?>" class="<?php echo isActive('musco'); ?>">Musco Center for the Arts</a>
 <a href="<?php echo $baseUrl.'/schmid/index.php' ?>" class="<?php echo isActive('schmid'); ?>">Schmid College of Science and Technology</a>
 <a href="<?php echo $baseUrl.'/communication/index.php' ?>" class="<?php echo isActive('communication'); ?>">School of Communication</a>
 <a href="<?php echo $baseUrl.'/pharmacy/index.php' ?>" class="<?php echo isActive('pharmacy'); ?>">School of Pharmacy</a>

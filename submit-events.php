@@ -36,7 +36,10 @@ include "includes/header.php" ?>
         <div class="row pt-4">
            <div class="col-md-12">
 
-
+            <h2>Who Can Add an Event to the Event Calendar?</h2>
+            <p>Any Chapman staff member, faculty member, or student org representative who has received training on submitting an event request in 25Live can submit an event to the event calendar. Please sign up here to RSVP for 25Live training.</p>
+            <a class="btn btn-danger border-0 rounded-0" href="https://chapman.formstack.com/forms/25_live_training_request" target="_blank">Sign up to RSVP for 25Live Training</a>
+            <hr /> 
             <h2>How Do I Add An Event to the Event Calendar?</h2>
             <p>The public events calendar pulls events directly from 25Live. To add an event to the calendar, the event must be created in 25Live with Public as the Event Type.  Once the event has been confirmed, the event will appear on the public events calendar. </p>
             <a class="btn btn-danger border-0 rounded-0" href="https://25live.collegenet.com/chapman/" target="_blank"> Login to Submit an Event </a>
