@@ -1,7 +1,18 @@
 <?php
+/**
+ * moderncampus-getrssfeed.php
+ * A secure script to fetch and parse an RSS feed from a specific domain.
+ * This version supports multiple allowed origin domains for CORS.
+ */
+
+// =============================================================================
+//  CONFIGURATION - **ACTION REQUIRED**
+// =============================================================================
+// This is your whitelist of domains that are allowed to make requests to this script.
+// It includes your production domain and your CMS/staging domain.
 $allowed_origins = [
-    'https://www.your-university.edu',  
-    'https://a.cms.omniupdate.com' 
+    'https://www.chapman.edu',          // Your main production website
+    'https://a.cms.omniupdate.com'       // The Modern Campus testing domain
 ];
 
 // The only host we will allow RSS feeds to be fetched from.
@@ -9,35 +20,45 @@ $allowed_feed_host = '25livepub.collegenet.com';
 // =============================================================================
 
 
-// --- 1. SET HEADERS ---
+// =============================================================================
+//  THIS IS THE KEY PART THAT FIXES THE ERROR
+// =============================================================================
+// Dynamically check the incoming request's origin against the whitelist.
+if (isset($_SERVER['HTTP_ORIGIN'])) {
+    // If the origin of the request is in our array of allowed origins...
+    if (in_array($_SERVER['HTTP_ORIGIN'], $allowed_origins)) {
+        // ...then send back a header that specifically allows that origin.
+        header("Access-Control-Allow-Origin: " . $_SERVER['HTTP_ORIGIN']);
+    } else {
+        // If the origin is NOT in our whitelist, block the request as forbidden.
+        http_response_code(403); // Forbidden
+        header('Content-Type: application/json');
+        echo json_encode(['error' => 'Origin not allowed.']);
+        exit; // Stop script execution immediately.
+    }
+}
+// =============================================================================
 
-// Send the CORS header to allow your website to access this script.
-header("Access-Control-Allow-Origin: " . $allowed_origin);
+
 // Set the content type to JSON so the browser knows how to handle the response.
 header('Content-Type: application/json');
 
 
-// --- 2. SECURITY VALIDATION ---
+// --- SECURITY VALIDATION ---
 
-// Check if the 'url' parameter was provided in the request
 if (empty($_GET['url'])) {
     http_response_code(400); // Bad Request
     echo json_encode(['error' => 'URL parameter is missing.']);
-    exit; // Stop script execution
+    exit;
 }
 
 $feedUrl = $_GET['url'];
-
-// Use PHP's parse_url() to safely break the URL into its components
 $urlParts = parse_url($feedUrl);
 
-// Validate the provided URL against our security rules
 if (
-    $urlParts === false ||                  // Check if the URL is malformed
-    !isset($urlParts['scheme']) ||          // Check for a scheme (http/https)
-    $urlParts['scheme'] !== 'https' ||       // Enforce HTTPS for security
-    !isset($urlParts['host']) ||            // Check for a host
-    $urlParts['host'] !== $allowed_feed_host // Ensure the host matches our whitelist
+    $urlParts === false ||
+    !isset($urlParts['scheme']) || $urlParts['scheme'] !== 'https' ||
+    !isset($urlParts['host']) || $urlParts['host'] !== $allowed_feed_host
 ) {
     http_response_code(400); // Bad Request
     echo json_encode(['error' => 'The provided URL is not valid or is not from an allowed domain.']);
@@ -45,18 +66,16 @@ if (
 }
 
 
-// --- 3. FETCH AND PARSE THE FEED ---
+// --- FETCH AND PARSE THE FEED ---
 
-// Use the '@' symbol to suppress warnings on failure; we'll handle errors manually
 $xmlString = @file_get_contents($feedUrl);
 
 if ($xmlString === false) {
-    http_response_code(502); // Bad Gateway (couldn't fetch from the source)
+    http_response_code(502); // Bad Gateway
     echo json_encode(['error' => 'Failed to fetch the RSS feed from the source server.']);
     exit;
 }
 
-// Disable libxml errors to prevent leaking path information and handle parsing errors gracefully
 libxml_use_internal_errors(true);
 $rss = simplexml_load_string($xmlString);
 
@@ -67,25 +86,20 @@ if ($rss === false) {
 }
 
 
-// --- 4. FORMAT AND OUTPUT THE DATA ---
+// --- FORMAT AND OUTPUT THE DATA ---
 
 $items = [];
-
-// Check if the expected XML structure exists
 if (isset($rss->channel->item)) {
-    // Loop through each <item> in the <channel>
     foreach ($rss->channel->item as $item) {
         $items[] = [
             'title'       => (string) $item->title,
             'link'        => (string) $item->link,
             'description' => (string) $item->description,
-            // RSS feeds often use 'pubDate'. Check for its existence.
             'date'        => isset($item->pubDate) ? (string) $item->pubDate : null, 
         ];
     }
 }
 
-// Success! Encode the final array into JSON and send it to the browser.
 echo json_encode($items);
 
 ?>
