@@ -1,5 +1,8 @@
 <?php
-$allowed_origin = 'https://www.chapman.edu'; 
+$allowed_origins = [
+    'https://www.your-university.edu',  
+    'https://a.cms.omniupdate.com' 
+];
 
 // The only host we will allow RSS feeds to be fetched from.
 $allowed_feed_host = '25livepub.collegenet.com';
