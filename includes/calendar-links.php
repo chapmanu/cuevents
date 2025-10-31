@@ -27,6 +27,7 @@ foreach ($keywords as $k) {
 <a href="<?php echo $baseUrl.'/crean/index.php' ?>" class="<?php echo isActive('crean'); ?>"> Crean College of Health and Behavioral Sciences</a>
 <a href="<?php echo $baseUrl.'/copa/index.php' ?>" class="<?php echo isActive('copa'); ?>"> College of Performing Arts</a>
 <a href="<?php echo $baseUrl.'/dodge/index.php' ?>" class="<?php echo isActive('dodge'); ?>"> Dodge College of Film and Media Arts</a>
+<a href="<?php echo $baseUrl.'/fish/index.php' ?>" class="<?php echo isActive('fish'); ?>">Fish Interfaith Center</a>
 <a href="<?php echo $baseUrl.'/fowler/index.php' ?>" class="<?php echo isActive('fowler'); ?>">Fowler School of Engineering</a>
 <a href="<?php echo $baseUrl.'/law/index.php' ?>" class="<?php echo isActive('law'); ?>">Fowler School of Law</a>
 <a href="<?php echo $baseUrl.'/musco/index.php' ?>" class="<?php echo isActive('musco'); ?>">Musco Center for the Arts</a>
