@@ -10,7 +10,7 @@ function isActive($keyword) {
     return '';
 }
 
-$keywords = ['argyros', 'attallah', 'crean', 'copa', 'dodge', 'fowler', 'law', 'musco', 'schmid', 'communication', 'pharmacy', 'wilkinson', 'student'];
+$keywords = ['argyros', 'attallah', 'crean', 'copa', 'dodge', 'fowler', 'law', 'musco', 'schmid', 'communication', 'pharmacy', 'wilkinson'];
 $anyMatched = false;
 foreach ($keywords as $k) {
     if (isActive($k)) {
@@ -35,5 +35,4 @@ foreach ($keywords as $k) {
 <a href="<?php echo $baseUrl.'/communication/index.php' ?>" class="<?php echo isActive('communication'); ?>">School of Communication</a>
 <a href="<?php echo $baseUrl.'/pharmacy/index.php' ?>" class="<?php echo isActive('pharmacy'); ?>">School of Pharmacy</a>
 <a href="<?php echo $baseUrl.'/wilkinson/index.php' ?>" class="<?php echo isActive('wilkinson'); ?>">Wilkinson College of Arts, Humanities, and Social Sciences</a>
-<a href="<?php echo $baseUrl.'/students/index.php' ?>" class="<?php echo isActive('student'); ?>">Student Events</a>
 </div>
