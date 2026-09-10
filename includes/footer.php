@@ -11,6 +11,9 @@
         <h2 class="footer__title">Rinker Health Science <br />Campus</h2>
         <a aria-label="Google Maps - Rinker Campus" href="https://www.google.com/maps/place/Chapman+University+Rinker+Health+Science+Campus/@33.650635,-117.7203547,17z/data=!4m13!1m7!3m6!1s0x80dce81715a0d84b:0x8fe3dc2fce1c83da!2s9401+Jeronimo+Rd,+Irvine,+CA+92618!3b1!8m2!3d33.650635!4d-117.718166!3m4!1s0x80dcde16796ddc25:0xb4afb4199eff4db8!8m2!3d33.6506535!4d-117.7181062?hl=en">9401 Jeronimo Road <br> Irvine, CA 92618 </a></div>
         </div>
+        <div>
+            <p style="color: black;">This is a test for SOS</p>
+        </div>
         <!-- GET STARTED -->
         <div class="footer__column footer__get-started">
         <h2 class="footer__title">Get Started</h2>
