@@ -48,44 +48,10 @@ include "includes/header.php" ?>
       </div>
       <?php include "includes/footer.php" ?>
     
-    <script type="text/javascript">
-       $Trumba.addSpud({
-          webName: "chapman-public-events-calendar",
-          spudType : "searchlabeled",
-           spudId: "search"
-        });
-
-        $Trumba.addSpud({
-        webName: "chapman-public-events-calendar",
-        spudType : "main",
-        spudId: "events" });
-
-        $Trumba.addSpud({
-        webName: "chapman-public-events-calendar",
-        spudType : "datefinder" ,
-        teaserBase : "/index.php",
-        spudId: "dates" });
-
-        $Trumba.addSpud({
-        webName: "chapman-public-events-calendar",
-        spudType : "monthlist", 
-        spudId: "months"
-        });
-
-        $Trumba.addSpud({
-        webName: "chapman-public-events-calendar",
-        spudType : "filter",
-        spudId: "calendars" });
-       
-
-        $(document).ready(function() {
-          if ($('#ctl04_credit').length) {
-            $('#ctl04_credit').hide();
-          } else {
-            console.log("Element with ID 'yourID' is not loaded.");
-          }
-        });
-     
-    </script>
+    <?php
+    $calendarWebName = 'chapman-public-events-calendar';
+    $teaserBase = '/index.php';
+    include 'includes/trumba-spuds.php';
+    ?>
   </body>
 </html>

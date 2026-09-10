@@ -7,6 +7,8 @@ $title = "Events Calendar | Chapman University";
 $baseUrl = getenv('APP_BASE_URL');
 $basePath = getenv('APP_BASE_PATH');
 
+include __DIR__ . '/trumba-config.php';
+
 // Define custom titles for specific paths
 if (strpos($uri, 'copa') !== false) {
     $title = "College of Performing Arts Events Calendar | Chapman University";

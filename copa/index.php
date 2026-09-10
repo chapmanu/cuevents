@@ -46,45 +46,11 @@
         </div>
       </div>
       <?php include "../includes/footer.php" ?>
-    <script type="text/javascript">
-       $Trumba.addSpud({
-          webName: "copa-event-calendar",
-          spudType : "searchlabeled",
-           spudId: "search"
-        });
-
-        $Trumba.addSpud({
-        webName: "copa-event-calendar",
-        spudType : "main",
-        spudId: "events" });
-
-        $Trumba.addSpud({
-        webName: "copa-event-calendar",
-        spudType : "datefinder" ,
-        teaserBase : "<?php echo $baseUrl.'/copa/index.php' ?>",
-        spudId: "dates" });
-
-        $Trumba.addSpud({
-        webName: "copa-event-calendar",
-        spudType : "monthlist", 
-        spudId: "months"
-        });
-
-        $Trumba.addSpud({
-        webName: "copa-event-calendar",
-        spudType : "filter",
-        spudId: "calendars" });
-       
-
-        $(document).ready(function() {
-          if ($('#ctl04_credit').length) {
-            $('#ctl04_credit').hide();
-          } else {
-            console.log("Element with ID 'yourID' is not loaded.");
-          }
-        });
-     
-    </script>
+    <?php
+    $calendarWebName = 'copa-event-calendar';
+    $teaserBase = $baseUrl . '/copa/index.php';
+    include '../includes/trumba-spuds.php';
+    ?>
     
   </body>
 </html>
