@@ -54,6 +54,3 @@
     <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="https://25livepub.collegenet.com/scripts/spuds.js"></script>
-    <?php if (!empty($enableSearchUrlSync)) : ?>
-    <script type="text/javascript" src="<?php echo $basePath.'/js/trumba-search-sync.js' ?>"></script>
-    <?php endif; ?>

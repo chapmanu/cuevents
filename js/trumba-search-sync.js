@@ -1,13 +1,9 @@
-(function($) {
-  var debounceTimer;
-
-  function getSearchInput() {
-    return $('#search').find('input[type="text"], input[type="search"]').first();
-  }
+(function(window) {
+  'use strict';
 
   function updateSearchParam(term) {
     var url = new URL(window.location.href);
-    var trimmed = $.trim(term);
+    var trimmed = (term || '').replace(/^\s+|\s+$/g, '');
 
     if (trimmed) {
       url.searchParams.set('search', trimmed);
@@ -16,68 +12,83 @@
     }
 
     var nextUrl = url.pathname + url.search + url.hash;
-    if (nextUrl !== window.location.pathname + window.location.search + window.location.hash) {
-      window.history.replaceState(null, '', nextUrl);
+    var currentUrl = window.location.pathname + window.location.search + window.location.hash;
+
+    if (nextUrl !== currentUrl) {
+      window.history.replaceState(window.history.state, '', nextUrl);
     }
   }
 
-  function bindSearchInput(input) {
-    if (!input.length || input.data('trumbaSearchSyncBound')) {
+  function getSearchFromSpuds() {
+    if (!window.$Trumba || !$Trumba.Spuds || !$Trumba.Spuds.controller) {
+      return '';
+    }
+
+    var controller = $Trumba.Spuds.controller;
+    var spudIds = ['events', 'search'];
+    var i, spud, term;
+
+    for (i = 0; i < spudIds.length; i++) {
+      spud = controller.getSpudById(spudIds[i]);
+      if (spud && spud.queryString && typeof spud.queryString.getValue === 'function') {
+        term = spud.queryString.getValue('search');
+        if (term) {
+          return term;
+        }
+      }
+    }
+
+    return '';
+  }
+
+  function syncFromSpuds() {
+    updateSearchParam(getSearchFromSpuds());
+  }
+
+  function bindSpudArgumentListener(spud) {
+    if (!spud || !spud.addEventListener || spud._trumbaSearchSyncBound) {
       return;
     }
 
-    input.data('trumbaSearchSyncBound', true);
-
-    input.on('input change', function() {
-      clearTimeout(debounceTimer);
-      debounceTimer = setTimeout(function() {
-        updateSearchParam(input.val());
-      }, 300);
-    });
-
-    input.on('keydown', function(event) {
-      if (event.key === 'Enter') {
-        clearTimeout(debounceTimer);
-        updateSearchParam(input.val());
+    spud._trumbaSearchSyncBound = true;
+    spud.addEventListener('onargumentchanged', function(args) {
+      if (args && args.name === 'search') {
+        window.setTimeout(syncFromSpuds, 0);
       }
     });
-
-    if ($.trim(input.val()) && !new URL(window.location.href).searchParams.get('search')) {
-      updateSearchParam(input.val());
-    }
   }
 
-  function watchForSearchInput() {
-    var input = getSearchInput();
-    if (input.length) {
-      bindSearchInput(input);
+  function initSearchSync() {
+    if (!window.$Trumba || !$Trumba.Spuds || !$Trumba.Spuds.controller) {
+      window.setTimeout(initSearchSync, 50);
       return;
     }
 
-    var observer = new MutationObserver(function() {
-      input = getSearchInput();
-      if (input.length) {
-        bindSearchInput(input);
-        observer.disconnect();
-      }
+    var controller = $Trumba.Spuds.controller;
+
+    if (controller._trumbaSearchSyncInit) {
+      return;
+    }
+    controller._trumbaSearchSyncInit = true;
+
+    controller.addEventListener('navigate', function() {
+      window.setTimeout(syncFromSpuds, 50);
     });
 
-    var searchContainer = document.getElementById('search');
-    if (searchContainer) {
-      observer.observe(searchContainer, { childList: true, subtree: true });
-    }
+    bindSpudArgumentListener(controller.getSpudById('events'));
+    bindSpudArgumentListener(controller.getSpudById('search'));
+
+    syncFromSpuds();
   }
 
-  $(document).ready(function() {
-    watchForSearchInput();
+  window.TrumbaSearchSync = {
+    init: initSearchSync,
+    syncFromSpuds: syncFromSpuds
+  };
 
-    $(document).on('click', '#search a, #events a', function() {
-      var linkText = $.trim($(this).text());
-      if (linkText.toLowerCase() === 'clear') {
-        setTimeout(function() {
-          updateSearchParam('');
-        }, 0);
-      }
-    });
-  });
-})(jQuery);
+  if (window.jQuery) {
+    window.jQuery(initSearchSync);
+  } else {
+    initSearchSync();
+  }
+})(window);

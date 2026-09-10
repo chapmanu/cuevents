@@ -64,5 +64,16 @@ $trumbaSearchJson = json_encode($enableSearchUrlSync ? ($trumbaSearchTerm ?: '')
       $('#ctl04_credit').hide();
     }
   });
+
+  if (searchSyncEnabled) {
+    var syncScript = document.createElement('script');
+    syncScript.src = <?php echo json_encode($basePath . '/js/trumba-search-sync.js'); ?>;
+    syncScript.onload = function() {
+      if (window.TrumbaSearchSync) {
+        window.TrumbaSearchSync.init();
+      }
+    };
+    document.body.appendChild(syncScript);
+  }
 })();
 </script>
