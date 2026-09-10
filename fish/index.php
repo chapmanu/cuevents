@@ -47,45 +47,11 @@
         </div>
       </div>
       <?php include "../includes/footer.php" ?>
-    <script type="text/javascript">
-       $Trumba.addSpud({
-          webName: "fish-interfaith-center-calendar",
-          spudType : "searchlabeled",
-           spudId: "search"
-        });
-
-        $Trumba.addSpud({
-        webName: "fish-interfaith-center-calendar",
-        spudType : "main",
-        spudId: "events" });
-
-        $Trumba.addSpud({
-        webName: "fish-interfaith-center-calendar",
-        spudType : "datefinder" ,
-        teaserBase : "<?php echo $baseUrl.'/fish/index.php' ?>",
-        spudId: "dates" });
-
-        $Trumba.addSpud({
-        webName: "fish-interfaith-center-calendar",
-        spudType : "monthlist", 
-        spudId: "months"
-        });
-
-        $Trumba.addSpud({
-        webName: "fish-interfaith-center-calendar",
-        spudType : "filter",
-        spudId: "calendars" });
-       
-
-        $(document).ready(function() {
-          if ($('#ctl04_credit').length) {
-            $('#ctl04_credit').hide();
-          } else {
-            console.log("Element with ID 'yourID' is not loaded.");
-          }
-        });
-     
-    </script>
+    <?php
+    $calendarWebName = 'fish-interfaith-center-calendar';
+    $teaserBase = $baseUrl . '/fish/index.php';
+    include '../includes/trumba-spuds.php';
+    ?>
     
   </body>
 </html>

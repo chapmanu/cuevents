@@ -46,45 +46,11 @@
         </div>
       </div>
       <?php include "../includes/footer.php" ?>
-    <script type="text/javascript">
-       $Trumba.addSpud({
-          webName: "wilkinson-event-calendar",
-          spudType : "searchlabeled",
-           spudId: "search"
-        });
-
-        $Trumba.addSpud({
-        webName: "wilkinson-event-calendar",
-        spudType : "main",
-        spudId: "events" });
-
-        $Trumba.addSpud({
-        webName: "wilkinson-event-calendar",
-        spudType : "datefinder" ,
-        teaserBase : "<?php echo $baseUrl.'/wilkinson/index.php' ?>",
-        spudId: "dates" });
-
-        $Trumba.addSpud({
-        webName: "wilkinson-event-calendar",
-        spudType : "monthlist", 
-        spudId: "months"
-        });
-
-        $Trumba.addSpud({
-        webName: "wilkinson-event-calendar",
-        spudType : "filter",
-        spudId: "calendars" });
-       
-
-        $(document).ready(function() {
-          if ($('#ctl04_credit').length) {
-            $('#ctl04_credit').hide();
-          } else {
-            console.log("Element with ID 'yourID' is not loaded.");
-          }
-        });
-     
-    </script>
+    <?php
+    $calendarWebName = 'wilkinson-event-calendar';
+    $teaserBase = $baseUrl . '/wilkinson/index.php';
+    include '../includes/trumba-spuds.php';
+    ?>
     
   </body>
 </html>

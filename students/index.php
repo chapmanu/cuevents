@@ -45,45 +45,11 @@
         </div>
       </div>
       <?php include "../includes/footer.php" ?>
-    <script type="text/javascript">
-       $Trumba.addSpud({
-          webName: "student-event-calendar-2",
-          spudType : "searchlabeled",
-           spudId: "search"
-        });
-
-        $Trumba.addSpud({
-        webName: "student-event-calendar-2",
-        spudType : "main",
-        spudId: "events" });
-
-        $Trumba.addSpud({
-        webName: "student-event-calendar-2",
-        spudType : "datefinder" ,
-        teaserBase : "<?php echo $baseUrl.'/students/index.php' ?>",
-        spudId: "dates" });
-
-        $Trumba.addSpud({
-        webName: "student-event-calendar-2",
-        spudType : "monthlist", 
-        spudId: "months"
-        });
-
-        $Trumba.addSpud({
-        webName: "student-event-calendar-2",
-        spudType : "filter",
-        spudId: "calendars" });
-       
-
-        $(document).ready(function() {
-          if ($('#ctl04_credit').length) {
-            $('#ctl04_credit').hide();
-          } else {
-            console.log("Element with ID 'yourID' is not loaded.");
-          }
-        });
-     
-    </script>
+    <?php
+    $calendarWebName = 'student-event-calendar-2';
+    $teaserBase = $baseUrl . '/students/index.php';
+    include '../includes/trumba-spuds.php';
+    ?>
     
   </body>
 </html>
